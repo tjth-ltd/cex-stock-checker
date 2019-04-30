@@ -25,3 +25,6 @@ sudo docker exec -it cex-stock-checker python /working/check-cex-stock.py
 
 * Web interface for entering URL for requests
 * Parsing full URL for Product ID
+* Email notification when in stock
+* Instructions for Scheduling in Cron
+* Json reading for multiple checks
