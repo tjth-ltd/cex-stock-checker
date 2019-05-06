@@ -1,7 +1,12 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 # Imports
 from requests_html import HTMLSession
+import requests
+import ssl
+
+# Bypass SSL error
+ssl._create_default_https_context = ssl._create_unverified_context
 
 # Product
 cex = "https://uk.webuy.com/product-detail/?id="
