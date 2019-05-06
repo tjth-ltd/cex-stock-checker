@@ -15,7 +15,7 @@ docker-compose up -d
 
 * Get the Product ID from the URL of the Product
 * Update working/check-cex-stock.py with your Product ID
-* Execute the script:
+* Execute the script (Note, the first run will install the latest version of pyppeter Chromium):
 
 ```
 sudo docker exec -it cex-stock-checker python /working/check-cex-stock.py
