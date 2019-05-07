@@ -5,5 +5,4 @@ services:
   container_name: cex-stock-checker
   volumes:
    - './working:/working/'
-   - '/usr/share/ca-certificates:/usr/share/ca-certificates'
   tty: true
