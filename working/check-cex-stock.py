@@ -3,29 +3,25 @@
 # Imports
 from requests_html import HTMLSession
 import requests
-import ssl
+from subprocess import call
 
-# Bypass SSL error
-ssl._create_default_https_context = ssl._create_unverified_context
-
-# Product
+# Products
 cex = "https://uk.webuy.com/product-detail/?id="
-productId = "stabmics3i7256gwpa" ## Not in Stock example
-#productId = "5026555423045" ## In Stock example
- 
-# create an HTML Session object
-session = HTMLSession()
-resp = session.get(cex + productId)
-resp.html.render()
+productId = ["stabmics3i7256gwpa", "stabmics3i7512g1a", "stabmics3i7512g1c"] ## List of ProductIDs 
 
-# Get Class Details
-name = resp.html.find(".productNamecustm",first=True)
-name = name.text.split('\n', 1)[0]
-stock = resp.html.find(".buyNowButton",first=True)
-stock = stock.text
+for product in productId:
+    # create an HTML Session object
+    session = HTMLSession()
+    resp = session.get(cex + product)
+    resp.html.render()
 
-# Print Results
-if stock.find("Out Of Stock") == -1:
-    print("Success, Item " + name + " is in Stock")
-else:
-    print("Item " + name + " is not in Stock right now")
+    # Get Class Details
+    name = resp.html.find(".productNamecustm",first=True)
+    name = name.text.split('\n', 1)[0]
+    stock = resp.html.find(".buyNowButton",first=True)
+    stock = stock.text
+
+    # Print Results
+    if stock.find("Out Of Stock") == -1:
+        print("Item " +name + " is in stock! Emailing..")
+        call(["python", "/working/sendmail.py", name, product])
