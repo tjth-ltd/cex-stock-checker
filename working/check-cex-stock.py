@@ -13,7 +13,7 @@ for product in productId:
     # create an HTML Session object
     session = HTMLSession()
     resp = session.get(cex + product)
-    resp.html.render()
+    resp.html.render(timeout=15)
 
     # Get Class Details
     name = resp.html.find(".productNamecustm",first=True)
