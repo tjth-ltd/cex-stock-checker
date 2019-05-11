@@ -1,0 +1,5 @@
+FROM python
+ADD ./http /web
+RUN pip install flask
+RUN pip install flask_wtf
+WORKDIR /web

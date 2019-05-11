@@ -1,0 +1,17 @@
+/* Site */
+body {font-family: 'Open Sans', sans-serif;}
+
+/* Header */
+#header {height:100px;width:100%;background-color:#a91212;position:relative;}
+.login {float:right;top:5px;right:10px;position:absolute;}
+.login a {color:white;text-decoration:none;}
+.login a:hover {text-decoration:underline;}
+
+/* Nav */
+ul.menu li {display:inline-block; background-color: #c21515;border-radius:3px;padding:5px 10px;margin-right:10px;border: solid 1px #d4d4d4;}
+ul.menu li:hover {background-color:#a31111}
+ul.menu li a {color:white;text-decoration:none;}
+
+
+/* Footer */
+#footer {background-color: grey;height:100px;width:100%;}

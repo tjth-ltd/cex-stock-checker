@@ -1,9 +1,22 @@
 version: '3'
 services:
- python:
-  build: .
+ checker:
+  build:
+   context: .
+   dockerfile: Dockerfile-checker 
   container_name: cex-stock-checker
   volumes:
-   - './working:/working/'
+   - './checker:/working/'
   tty: true
   restart: always
+ http:
+  build: 
+   context: .
+   dockerfile: Dockerfile-http
+  container_name: cex-http
+  volumes:
+   - './http:/web/'
+  command: 'python /web/app.py'
+  restart: always
+  ports:
+   - '80:80'
