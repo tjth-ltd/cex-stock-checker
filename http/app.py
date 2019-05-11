@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-import os
+from flask_wtf import FlaskForm
 
 app = Flask(__name__)
 
